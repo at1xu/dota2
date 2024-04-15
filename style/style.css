@@ -1,0 +1,341 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: linear-gradient(black,black);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+.conteinerJoinSelection
+{
+    position: relative;
+    text-align: center;
+    margin-bottom:150px ;
+    background-image: url(https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react//home/radiant_dire5.jpg);
+    background-size: 100% auto;
+    width: 100%;
+    height: auto ;
+    background-repeat: no-repeat;
+        
+}
+.headtext{
+    width: 100%;
+    margin: 0 auto;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    
+}
+.Minor{
+    
+    color: #e2dace;
+    text-transform: uppercase;
+}
+.ansients {
+    position: relative;
+    margin-top: 400px;
+    font-family: 'Reaver',serif;
+    font-size:3.7vw;
+    color: #e2dace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 105%;
+    opacity: .6;
+}
+
+.headbodytext{
+    position: relative;
+    text-align: center;
+    margin-top: 30px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    color: #e2dace;
+    font-size: 26px;
+    line-height: 115%;
+    font-weight: 100;
+   
+    
+}
+.headbuttontext{
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    
+}   
+.conteinerChouseSelection{
+    width: 100%;
+    max-width: 100%;
+    min-height: 2000px;
+    background-size: 3500px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-image: url(https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react//home/heroes_full.jpg);
+    background-size: 100% auto;
+}
+.chousetext{
+    margin-top: 360px;
+    text-align: center;
+    padding-bottom: 20px;
+    position: relative;
+    width:auto;
+    font-family: 'Reaver',serif;
+    font-weight: 700;
+    color: #e2dace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 105%;
+}
+.horizt-line{
+    position: relative;
+    width: 85px;
+    height: 3px;
+    min-height: 3px;
+    background-color: #ff6046;
+    border-radius: 1px;
+}
+.chousebodytext{
+    text-align: center;
+    width: 100%;
+    padding-bottom: 40px;
+    margin-top: 30px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    color: #e2dace;
+    font-size: 25px;
+    line-height: 115%;
+    font-weight: 100;
+    text-align: justify;
+}
+.containerdotapro{
+    width: 100%;
+    min-height: 1150px;
+    margin: 40px auto;
+    padding-bottom: 100px;
+    background-position: top;
+    background-size: 2000px;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react//home/dpc.jpg);
+}
+.logo-pro{
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 96px;
+    min-height: 96px;
+    margin-top: 550px;
+    background-image: url(https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react//icons/dpc.svg);
+
+}
+.pro-text{
+    text-align: center;
+    margin-bottom: 8px;
+    width: 80%;
+    font-family: 'Reaver',serif;
+    font-weight: 700;
+    font-size: 100px;
+    color: #e2dace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 105%;
+    font-size: 60px;
+}
+.pro-text-body{
+    
+    width: 90%;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 22px;
+   
+    color: #e2dace;
+    line-height: 115%;
+    font-weight: 100;
+}
+.conteinerbattle{
+    width: 100%;
+    margin: 100px auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 150px;
+    background-image: url(https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react//home/background4.png);
+}
+.battle-text{
+    font-family: Reaver,serif;
+    font-weight: 700;
+    font-size: 100px;
+    color: #e2dace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 105%;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 60px;
+}
+.butonbat{
+    border: 3px solid rgba(255,255,255,.3137254902);
+    padding: 15px 25px;
+    margin: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    transition: border-color 0.5s ease;
+
+}
+.butonbat:hover{
+    border-color:#ff6046;
+    transform: translateY(-2px);
+    
+}
+
+
+
+footer {
+    background-color: black;
+    color: white;
+    bottom: 0;
+    width: 100%;
+    font-size: 16px;
+  }
+  .row {
+    padding: 1em 1em;
+  }
+  .row.primary {
+    display: grid;
+    grid-template-columns: 3fr 2fr 4fr;
+    align-items: stretch;
+  }
+  .column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2em;
+    min-height: 15em;
+  }
+  h3 {
+    width: 100%;
+    text-align: left;
+    color: white;
+    font-size: 1.4em;
+    white-space: nowrap;
+  }
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+  li:not(:first-child) {
+    margin-top: 0.8em;
+  }
+  ul li a {
+    color: #a7a7a7;
+    text-decoration: none;
+  }
+  ul li a:hover {
+    color: #c7940a;
+  }
+  .about p {
+    text-align: justify;
+    line-height: 2;
+    margin: 0;
+  }
+  input,
+  button {
+    font-size: 1em;
+    padding: 1em;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  button {
+    background-color: #c7940a;
+    color: #ffffff;
+  }
+  div.social {
+    display: flex;
+    justify-content: space-around;
+    font-size: 2.4em;
+    flex-direction: row;
+    margin-top: 0.5em;
+  
+  }
+  .social i {
+    color: #bac6d9;
+  }
+  
+
+
+
+
+  .modalcookies {
+    display: flex;
+    z-index: 5;
+    position: fixed;
+    background-color: gray;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    transition: opacity 0.5s ease-in-out;
+  }
+  .modalcookies .modal-footer {
+    background-color: #500505;
+  }
+  .btn-primary {
+    background-color: white;
+    color: #500505;
+    border: none;
+  }
+  .btn-primary:hover {
+    background-color: #e1e1e1;
+    border: none;
+    color: #500505;
+  }
+  .modal-header {
+    border-bottom: none;
+    padding-top: 25px;
+  }
+  .modalcookies img {
+    width: 100px;
+  }
+  .modalcookies .modal-body {
+    display: flex;
+  }
+  .modalcookies p {
+    width: 60%;
+  }
+
+
+
+
+
+
+
+
+

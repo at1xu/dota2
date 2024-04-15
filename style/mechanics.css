@@ -1,0 +1,170 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(black,gray);
+    color: whitesmoke;
+}
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.headertext{
+    font-size: 73px;
+
+}
+.floatright
+{
+    margin: 0 0 10px 20px;
+    float: right;
+}
+.im{
+    width: 170px;
+   
+    height: 170px;
+}
+.unit
+{
+    padding-top: 15px;
+    font-size: 32px;
+    transition: 0.4s;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+}
+
+.accordion {
+    background-color: rgba(0,0,0,.5);
+    opacity: .19;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  }
+  
+  
+  .accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .activ:after {
+    content: "\2212";
+  }
+
+  
+
+  .panel {
+    padding-top: 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+.header
+{
+    background-color: #60180e;
+    color: #b9b9b9;
+    padding-right: 21px;
+    position: relative;
+    padding-bottom: 9px;
+    padding-top: 9px;
+}
+.wikitable > tr > th,td{
+    border: 1px solid #a2a9b1;
+    padding: 0.2em 0.4em;
+}
+
+.tds{
+    padding:8px; 
+    padding-left: 15px;
+}
+
+
+footer {
+   
+    color: white;
+    bottom: 0;
+    width: 100%;
+    font-size: 16px;
+  }
+  .row {
+    padding: 1em 1em;
+  }
+  .row.primary {
+    display: grid;
+    grid-template-columns: 3fr 2fr 4fr;
+    align-items: stretch;
+  }
+  .column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2em;
+    min-height: 15em;
+  }
+  h3 {
+    width: 100%;
+    text-align: left;
+    color: white;
+    font-size: 1.4em;
+    white-space: nowrap;
+  }
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+  li:not(:first-child) {
+    margin-top: 0.8em;
+  }
+  ul li a {
+    color: #a7a7a7;
+    text-decoration: none;
+  }
+  ul li a:hover {
+    color: #c7940a;
+  }
+  .about p {
+    text-align: justify;
+    line-height: 2;
+    margin: 0;
+  }
+  input,
+  button {
+    font-size: 1em;
+    padding: 1em;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  button {
+    background-color: #c7940a;
+    color: #ffffff;
+  }
+  div.social {
+    display: flex;
+    justify-content: space-around;
+    font-size: 2.4em;
+    flex-direction: row;
+    margin-top: 0.5em;
+  }
+  .social i {
+    color: #bac6d9;
+  }
+  
