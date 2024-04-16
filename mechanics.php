@@ -486,7 +486,7 @@
           </td>
           <td class="tds">Unit assumes a ghostly form, becoming immune to physical damage, but takes more magical damage. Ethereal units are <a href="" >disarmed</a> and <a href="" >attack immune</a>.
           </td></tr></tbody></table>
-          <div  style="display: none;"><div >Advertisement</div></div><h3>Dispelling</h3>
+          <div style="display: none;"><div >Advertisement</div></div><h3>Dispelling</h3>
           <div style="font-style:italic;font-size:15px;padding-left:2em;margin-bottom:0.5em">Main Article: <a href="" >Dispel</a></div>
           <p><a href="" >Dispel</a> refers to methods that remove buffs, debuffs, and status effects. This is an important topic to understanding the internal interactions of <i>Dota 2</i>.
           </p>

@@ -1,3 +1,16 @@
+<?php
+  require_once('clasess/form.php');
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $forma = new Forma();
+    
+    $meno = $_POST['meno'];
+    $email = $_POST['email'];
+    $txt = $_POST['textarea'];
+
+    $forma->ulozitSpavu($meno, $email, $txt);
+  }
+
+?>
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -14,7 +27,7 @@
       <h2>
         Thank you for deciding to join us
       </h2>      
-      <form id="myForm" method="post" action="db/dbContecst.php">
+      <form id="myForm" method="post">
           <label for="meno">Meno:</label>
           <input type="text" id="meno" name="meno" required>
 
