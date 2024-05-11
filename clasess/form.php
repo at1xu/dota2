@@ -16,7 +16,7 @@ class Forma extends Database{
     try {
       $insert = $statment->execute(array(':meno' => $meno, ':email' => $email, ':txt' => $txt));
       if ($insert) {
-        header("Location: http://localhost/dota2/thankyou.php");
+        header("Location: thankyou.php");
       } else {
         echo "Failed to insert data.";
       }

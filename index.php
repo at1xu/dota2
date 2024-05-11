@@ -80,58 +80,13 @@
           <a href="forma.php"><div class="butonbat"><div class="headbuttontext">PLAY FREE NOW</div></div></a>
         </div>
       </main>
-      <div class="modalcookies" id="cookieModal">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" style="margin-left: 30px">Cookies</h5>
-            </div>
-            <div class="modal-body">
-              <p
-                style="
-                  display: flex;
-                  align-items: center;
-                  margin-left: 30px;
-                  margin-right: 30px;
-                "
-              >
-                Používame cookies na zlepšenie vášho zážitku na našej stránke.
-                Pokračovaním súhlasíte s našou politikou ochrany údajov.
-              </p>
-              <img src="https://png.pngtree.com/png-clipart/20221208/ourmid/pngtree-cartoon-cookies-png-image_6516299.png" alt="cookie" style="padding-bottom: 20px;" />
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-primary"
-                onclick="acceptCookies()"
-              >
-                Accept
-              </button>
-              <button
-                type="button"
-                class="btn btn-secondary"
-                onclick="rejectCookies()"
-              >
-                Reject
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      
     
       <?php include './components/footer.php'; ?>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <script>
-      //COOKIES
-function acceptCookies() {
-  document.getElementById("cookieModal").style.display = "none";
-}
 
-function rejectCookies() {
-  document.getElementById("cookieModal").style.display = "none";
-}
+    
 
 </script>
 
