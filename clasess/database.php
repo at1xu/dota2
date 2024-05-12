@@ -1,5 +1,6 @@
 <?php
-require_once "db/config.php";
+require_once __DIR__ . '/../db/config.php';
+
 class Database {
   protected $conn;
 

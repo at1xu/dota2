@@ -18,7 +18,7 @@ session_start();
     <nav class="navbar navbar-expand-lg navbar-dark  bg-black" style="position: fixed;z-index: 1; width: 100%;">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.php">
-          <img src="img/Dota2-01.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img src="img/Dota2-01.svg" width="30" height="30" class="d-inline-block align-top" alt="">
           DOTA 2</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
