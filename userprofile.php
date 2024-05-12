@@ -70,19 +70,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
             <div class="row">
                 <div class="col-lg-7 col-md-10">
                     <h1 class="display-2 text-white">Hello <?php echo $userInfo['login']; ?></h1>
-                    <?php
-                        // Перевірка, чи користувач - адміністратор
-                        if ($user->isAdmin()) {
-                            echo '<button type="button" class="btn btn-primary">Адмінська кнопка</button>';
-                        }
-                    ?>
+                   
                     <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>  
                 
 
                     <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit profile</button>
-                    <a href="logout.php">
+
+                    <?php
+                        if ($user->isAdmin()) {
+                            echo '<a href="admin_panel.php"  >
+                                        <button type="submit" class="btn btn-warning">Admin panel</button>
+                                  </a>';
+                        }
+                    ?>
+                    <form action="logout.php" method="post" style="display: inline;">
                         <button type="submit" class="btn btn-danger">Logout</button>
-                    </a>                
+                    </form>
+           
                   </div>
             </div>
         </div>

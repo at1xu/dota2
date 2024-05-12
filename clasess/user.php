@@ -112,38 +112,13 @@ class User extends Database {
     public function create($login, $email, $password, $firstName, $lastName, $role = 'user', $image) {
         try {
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-
-            // Директорія для збереження завантажених файлів
-            $uploadDir = "../uploads/";
-
-            // Отримання базового імені файлу та розширення файлу
-            $fileName = basename($image);
-            $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-
-            // Створення унікального імені файлу
-            $uniqueFileName = uniqid() . "." . $fileType;
-
-            // Шлях до файлу, який буде завантажений
-            $targetFilePath = $uploadDir . $uniqueFileName;
-
-            // Перевірка, чи файл є зображенням
-            $isImage = getimagesize($image);
-            if ($isImage === false) {
-                throw new Exception("Файл не є зображенням.");
-            }
-
-           
-
-            // Завантаження файлу на сервер
-            if (!move_uploaded_file($image, $targetFilePath)) {
-                throw new Exception("Помилка при завантаженні файлу.");
-            }
-
+            
+            
             // Додавання користувача до бази даних
             $sql = "INSERT INTO users (login, email, password, firstname, lastname, role, image) VALUES (?, ?, ?, ?, ?, ?, ?)";
             $statement = $this->conn->prepare($sql);
-            $statement->execute([$login, $email, $hashedPassword, $firstName, $lastName, $role, $uniqueFileName]);
-
+            $statement->execute([$login, $email, $hashedPassword, $firstName, $lastName, $role, $image]);
+    
             return "Користувач успішно створений!";
         } catch (Exception $e) {
             return "Помилка при створенні користувача: " . $e->getMessage();

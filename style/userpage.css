@@ -70,7 +70,6 @@ body {
   margin: 0;
   text-align: left;
   color: #525f7f;
-  background-color: #f8f9fe;
 }
 
 [tabindex='-1']:focus {

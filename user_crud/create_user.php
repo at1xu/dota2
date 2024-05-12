@@ -3,24 +3,46 @@
 require_once "../clasess/user.php"; // Підключення класу User
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  // Отримання даних форми
-  $login = $_POST['username'];
-  $email = $_POST['email'];
-  $password = $_POST['password'];
-  $firstName = $_POST['firstname'];
-  $lastName = $_POST['lastname'];
-  $role = $_POST['role'];
-  $image = $_FILES['photo']['tmp_name']; // Шлях до зображення профілю у тимчасовій директорії
+    // Отримання даних форми
+    $login = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $firstName = $_POST['firstname'];
+    $lastName = $_POST['lastname'];
+    $role = $_POST['role'];
+    $photoName = $_FILES['photo']['name'];
+    $photoTmpName = $_FILES['photo']['tmp_name'];
+    $photoPath = 'uploads/' . $photoName;
 
-  // Створення екземпляра класу користувача
-  $user = new User();
+    // Створення екземпляра класу користувача
+    $user = new User();
 
-  // Виклик функції create для створення нового користувача
-  $result = $user->create($login, $email, $password, $firstName, $lastName, $role, $image);
-  header("Location: ../admin_panel.php");
-  exit();
+    try {
+        // Перевірка, чи було вибрано зображення для завантаження
+        if (empty($photoTmpName)) {
+            throw new Exception("Помилка: Зображення не було вибрано для завантаження.");
+        }
 
+        // Створення директорії uploads, якщо вона не існує
+        
+
+        // Завантаження файлу на сервер
+        if (move_uploaded_file($photoTmpName, $photoPath)) {
+            echo "";
+        } else {
+            echo "Помилка при завантаженні зображення.";
+        }
+
+        // Виклик функції create для створення нового користувача
+        $result = $user->create($login, $email, $password, $firstName, $lastName, $role, $photoPath);
+        header("Location: ../admin_panel.php");
+        exit();
+    } catch (Exception $e) {
+        echo "Помилка: " . $e->getMessage();
+    }
 }
+
+
 
 
 ?>
@@ -71,6 +93,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Create</button>
+            <a href="../admin_panel.php">
+                <button type="button" name="submit" class="btn btn-danger">cancel</button>
+            </a>
+
         </form>
     </div>
 

@@ -1,7 +1,6 @@
 <?php
 session_start(); 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,13 +8,12 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>header</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="style/style.css">
+    <!-- <link rel="stylesheet" href="style/style.css"> -->
   
 </head>
 <body>
-   <header>
-
-    <nav class="navbar navbar-expand-lg navbar-dark  bg-black" style="position: fixed;z-index: 1; width: 100%;">
+   <header style="position: realtive;z-index: 1;width: 100%;">
+    <nav class="navbar navbar-expand-lg navbar-dark  bg-black">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.php">
         <img src="img/Dota2-01.svg" width="30" height="30" class="d-inline-block align-top" alt="">
