@@ -13,6 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $photoName = $_FILES['photo']['name'];
     $photoTmpName = $_FILES['photo']['tmp_name'];
     $photoPath = 'uploads/' . $photoName;
+    
+    $photoPathTmp='../uploads/' . $photoName;
+
 
     // Створення екземпляра класу користувача
     $user = new User();
@@ -27,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
 
         // Завантаження файлу на сервер
-        if (move_uploaded_file($photoTmpName, $photoPath)) {
+        if (move_uploaded_file($photoTmpName, $photoPathTmp)) {
             echo "";
         } else {
             echo "Помилка при завантаженні зображення.";

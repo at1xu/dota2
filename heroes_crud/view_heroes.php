@@ -1,33 +1,24 @@
 <?php
 require_once "clasess/hero.php"; 
-require_once "clasess/database.php"; 
+
+
 
 $hh = new Hero();
 $heroes = $hh->getHeroes();
 
-$db = new Database();
-
-
 if (isset($_GET['id'])) {
-    // Get the user ID from the request
-    $Id = $_GET['id'];
+    $id = $_GET['id']; // Отримання ID героя для видалення
+    $result = $hh->deleteHero($id); // Виклик функції видалення героя за ID
 
-    // Check if the user ID is numeric
-    if (!is_numeric($Id)) {
-        echo 'ID користувача має бути числом.';
-        exit;
+    // Перевірка результату видалення
+    if ($result) {
+        echo "Героя було успішно видалено!";
+    } else {
+        echo "Не вдалося видалити героя.";
     }
-
-    // Delete the user from the database
-    $sql = "DELETE FROM heroes WHERE id = :id";
-    $statement = $db->getConnection()->prepare($sql);
-    $statement->bindParam(':id', $Id);
-    $statement->execute();
-
-    // Redirect to the same page to update the list of users
-    header("Location: admin_panel.php");
-    exit();
 }
+
+
 
 ?>
 

@@ -22,7 +22,7 @@ if (isset($_GET['id'])) {
 <head>
      <link href="style/hero_detail.css" rel="stylesheet">
   </head>
-<body>
+<body style="background-image: linear-gradient(black,gray);">
   <div>
     <?php include './components/header.php'; ?>
   </div>
@@ -38,7 +38,7 @@ if (isset($_GET['id'])) {
             
           </div>
           <div class="image">
-            <img src="<?php echo $heroDetails['img']; ?>" alt="">
+            <img src="<?php echo $heroDetails['detail_image']; ?>" alt="">
           </div>
         </div>
         <div class="half">

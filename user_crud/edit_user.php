@@ -94,8 +94,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                     </div>
                    
                     <button type="submit" name="submit" class="btn btn-primary">Save changes</button>
-                    <a href="admin_panel.php">
-                    <button type="submit" name="submit" class="btn btn-danger">cancel</button></a>
+                    <a href="../admin_panel.php">
+                        <button type="button" class="btn btn-danger">cancel</button>
+                    </a>
                 </form>
 
             </div>

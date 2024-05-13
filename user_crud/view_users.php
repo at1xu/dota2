@@ -1,35 +1,25 @@
 <?php
-require_once "clasess/database.php"; // Include the Database class
+require_once "clasess/user.php"; // Include the Database class
 
-$db = new Database();
 
-// Отримання списку користувачів
-$query = "SELECT * FROM users";
-$statement = $db->getConnection()->prepare($query);
-$statement->execute();
-$users = $statement->fetchAll(PDO::FETCH_ASSOC);
+$hh = new User();
+$users = $hh->getUsers();
 
-// Перевірка, чи передано ідентифікатор користувача для видалення
 if (isset($_GET['id'])) {
-    // Отримання ідентифікатора користувача з запиту
-    $userId = $_GET['id'];
+    $id = $_GET['id']; // Отримання ID героя для видалення
+    $result = $hh->deleteUser($id); // Виклик функції видалення героя за ID
 
-    // Перевірка, чи ідентифікатор користувача є числом
-    if (!is_numeric($userId)) {
-        echo 'ID користувача має бути числом.';
-        exit;
+    // Перевірка результату видалення
+    if ($result) {
+        echo "Героя було успішно видалено!";
+    } else {
+        echo "Не вдалося видалити героя.";
     }
-
-    // Видалення користувача з бази даних
-    $sql = "DELETE FROM users WHERE id = :id";
-    $statement = $db->getConnection()->prepare($sql);
-    $statement->bindParam(':id', $userId);
-    $statement->execute();
-
-    // Перенаправлення на цю ж сторінку для оновлення списку користувачів
     header("Location: admin_panel.php");
     exit();
 }
+
+
 
 ?>
 

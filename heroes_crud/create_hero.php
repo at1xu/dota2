@@ -6,22 +6,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $category = $_POST['category'];
     $description = $_POST['description'];
+    $attack_type = $_POST['attack_type']; // Додано
 
-    // Отримання ім'я файлів та шляхів до тимчасових файлів
+    // Отримання ім'я файлів
     $imgName = $_FILES['img']['name'];
-    $imgTmp = $_FILES['img']['tmp_name'];
     $categoryImgName = $_FILES['categoryimg']['name'];
+    $detailImageName = $_FILES['detail_image']['name'];
+
+   // Отримання шляхів до тимчасових файлів
+    $imgTmp = $_FILES['img']['tmp_name'];
     $categoryImgTmp = $_FILES['categoryimg']['tmp_name'];
+    $detailImageTmp = $_FILES['detail_image']['tmp_name'];
 
-  
-
+    // 'name' містить ім'я файлу, як воно було названо на клієнтському комп'ютері, 
+    // 'tmp_name' містить тимчасовий шлях до цього файлу на сервері, 
+    // який використовується для обробки та переміщення файлу на постійне місце.
+    
     // Збереження файлів на сервері
-    $imgPath ='uploads/' . $imgName;
+    $imgPath = 'uploads/' . $imgName;
     $categoryImgPath = 'uploads/' . $categoryImgName;
+    $detailImagePath = 'uploads/' . $detailImageName;
+    //це для збереження зображеннь в папку uploads
+    $imgPathTmp = '../uploads/' . $imgName;
+    $categoryImgPathTmp = '../uploads/' . $categoryImgName;
+    $detailImagePathTmp = '../uploads/' . $detailImageName;
+
+    move_uploaded_file($imgTmp, $imgPathTmp);
+    move_uploaded_file($categoryImgTmp, $categoryImgPathTmp);
+    move_uploaded_file($detailImageTmp, $detailImagePathTmp);
+
     $hero = new Hero();
-    $result = $hero->addHero($name, $imgPath, $categoryImgPath, $category, $description);
+    $result = $hero->addHero($name, $imgPath, $categoryImgPath, $category, $description, $detailImagePath, $attack_type);
     echo $result;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -55,9 +73,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="description" class="form-label">Description</label>
                 <textarea name="description" class="form-control" id="description" placeholder="Enter description" required></textarea>
             </div>
+            <div class="mb-3">
+                    <label for="detail_image" class="form-label">Detail Image</label>
+                    <input type="file" name="detail_image" class="form-control" id="detail_image" accept="image/*" required>
+            </div>
+
+            <div class="mb-3"> 
+                <label for="attack_type" class="form-label">Attack Type</label>
+                <input type="text" name="attack_type" class="form-control" id="attack_type" placeholder="Enter attack type">
+            </div>
             <button type="submit" class="btn btn-primary">Create</button>
             <a href="../admin_panel.php">
-                <button type="button" name="submit" class="btn btn-danger">cancel</button>
+                <button type="button" name="submit" class="btn btn-danger">Cancel</button>
             </a>
         </form>
     </div>

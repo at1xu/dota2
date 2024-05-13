@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
     // Перевірка та переміщення зображення профілю
     if (move_uploaded_file($photoTmpName, $photoPath)) {
-        echo "Інформацію профілю успішно оновлено!";
+        echo "";
     } else {
         echo "Помилка при завантаженні зображення.";
     }

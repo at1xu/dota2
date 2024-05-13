@@ -9,6 +9,19 @@ class User extends Database {
         $this->roles = "user";
     }
 
+    public function getUsers() {
+        try {
+            $sql = "SELECT * FROM users";
+            $statement = $this->conn->prepare($sql);
+            $statement->execute();
+            $heroes = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $heroes;
+        } catch (PDOException $e) {
+            echo "Помилка отримання списку юзерів: " . $e->getMessage();
+            return [];
+        }
+      }
+
     public function register($login, $email, $pasword) {
         try {
             $hashedPassword = password_hash($pasword, PASSWORD_BCRYPT);
@@ -125,18 +138,29 @@ class User extends Database {
         }
     }
     
-    
+    public function deleteUser($id)
+    {
+        try {
+            // Підготовка SQL-запиту для видалення героя
+            $sql = "DELETE FROM users WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
 
-    public function deleteUser($id) {
-        if (!is_numeric($id)) {
-            echo 'ID otázky musí byť číslo.';
-            exit;
+            // Прив'язка параметру :id до значення ID
+            $stmt->bindParam(':id', $id);
+            
+            // Виконання запиту
+            $stmt->execute();
+            
+            // Повернення true, якщо видалення пройшло успішно
+            return true;
+        } catch (PDOException $e) {
+            // Обробка помилок, якщо вони виникли
+            echo "Помилка видалення героя: " . $e->getMessage();
+            return false;
         }
-        $sql = "DELETE FROM users WHERE id = :id";
-        $statement = $this->conn->prepare($sql);
-        $statement->bindParam(':id', $id);
-        $statement->execute();
     }
+
+  
     
     
 }
