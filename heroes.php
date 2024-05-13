@@ -27,24 +27,17 @@ $heroes = $hh->getHeroes();
             <!-- grid heroes-->
                 <ul class="heroes" id="objectList">
                     <?php foreach ($heroes as $hero) { ?>
+                      <a href="detail_hero.php?id=<?php echo $hero['id']; ?>">
                         <li class="herogrid" href="" style="background-image: url('<?php echo $hero['img']; ?>');">
                             <div class="heroContainer">
                                 <img alt="" src="<?php echo $hero['categoryimg']; ?>" class="herocatygoryicon">
                                 <div class="heroname"><?php echo $hero['name']; ?></div>
                             </div>
                         </li>
+                      </a>
                     <?php } ?>
                 </ul>
 
-                  <!-- <li  class="herogrid" href="" style="background-image: url(https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ancient_apparition.png);">
-                    <div class="heroContainer">
-                      <img alt="" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png" class="herocatygoryicon">
-                      <div class="heroname">Ancient Apparition</div>
-                    </div>
-                  </li>
-                  <li  class="herogrid" href="" style="background-image: url(https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/antimage.png); "><div class="heroContainer"><img alt="" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png" class="herocatygoryicon"><div class="heroname">Anti-Mage</div></div></li>
-                  <li  class="herogrid" href="" style="background-image: url(https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/arc_warden.png); "><div class="heroContainer"><img alt="" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png" class="herocatygoryicon"><div class="heroname">Arc Warden</div></div></li>
-                  <li  class="herogrid" href="" style="background-image: url(https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/axe.png); "><div class="heroContainer"><img alt="" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png" class="herocatygoryicon"><div class="heroname">Axe</div></div></li> -->
                 
              
    </main>

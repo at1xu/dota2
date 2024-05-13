@@ -18,12 +18,13 @@ class Hero extends Database {
             return [];
         }
       }
-      public function getById($userId) {
-          $sql = "SELECT * FROM users WHERE id = ?";
-          $statement = $this->conn->prepare($sql);
-          $statement->execute([$userId]);
-          return $statement->fetch();
-      }
+      public function getById($heroId) {
+        $sql = "SELECT * FROM heroes WHERE id = ?";
+        $statement = $this->conn->prepare($sql);
+        $statement->execute([$heroId]);
+        return $statement->fetch();
+    }
+    
 
       public function addHero($name, $img, $categoryimg, $category, $description) {
           try {

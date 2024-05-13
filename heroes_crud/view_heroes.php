@@ -1,6 +1,6 @@
 <?php
-require_once "clasess/hero.php"; // Include the Database class
-require_once "clasess/database.php"; // Include the Database class
+require_once "clasess/hero.php"; 
+require_once "clasess/database.php"; 
 
 $hh = new Hero();
 $heroes = $hh->getHeroes();
