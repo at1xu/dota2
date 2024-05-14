@@ -100,18 +100,24 @@ class User extends Database {
     public function updateUser($userId, $login, $email, $password, $firstName, $lastName, $image) {
         try {
             $currentUser = $this->getUserById($userId);
-
+    
             $updatedLogin = isset($login) ? $login : $currentUser['login'];
             $updatedEmail = isset($email) ? $email : $currentUser['email'];
             $updatedPassword = isset($password) ? password_hash($password, PASSWORD_BCRYPT) : $currentUser['password'];
             $updatedFirstName = isset($firstName) ? $firstName : $currentUser['firstname'];
             $updatedLastName = isset($lastName) ? $lastName : $currentUser['lastname'];
-            $updatedImage = isset($image) ? $image : $currentUser['image'];
-
+            
+            // Перевірка, чи було завантажено нове зображення
+            if (isset($image) && $image['error'] === UPLOAD_ERR_OK) {
+                $updatedImage = $image['tmp_name']; // Встановлення шляху до завантаженого зображення
+            } else {
+                $updatedImage = $currentUser['image']; // Залишити поточне значення зображення
+            }
+    
             $sql = "UPDATE users SET login = ?, email = ?, password = ?, firstname = ?, lastname = ?, image = ? WHERE id = ?";
             $statement = $this->conn->prepare($sql);
             $result = $statement->execute([$updatedLogin, $updatedEmail, $updatedPassword, $updatedFirstName, $updatedLastName, $updatedImage, $userId]);
-
+    
             if ($result) {
                 echo "Інформацію профілю успішно оновлено!";
             } else {
@@ -121,7 +127,7 @@ class User extends Database {
             echo "Помилка: " . $e->getMessage();
         }
     }
-
+    
     public function create($login, $email, $password, $firstName, $lastName, $role = 'user', $image) {
         try {
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
