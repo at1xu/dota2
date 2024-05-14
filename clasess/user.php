@@ -99,34 +99,40 @@ class User extends Database {
     
     public function updateUser($userId, $login, $email, $password, $firstName, $lastName, $image) {
         try {
+            // Отримання поточних даних користувача
             $currentUser = $this->getUserById($userId);
     
+            // Перевірка та встановлення нових значень, якщо вони передані, або використання старих значень
             $updatedLogin = isset($login) ? $login : $currentUser['login'];
             $updatedEmail = isset($email) ? $email : $currentUser['email'];
             $updatedPassword = isset($password) ? password_hash($password, PASSWORD_BCRYPT) : $currentUser['password'];
             $updatedFirstName = isset($firstName) ? $firstName : $currentUser['firstname'];
             $updatedLastName = isset($lastName) ? $lastName : $currentUser['lastname'];
-            
-            // Перевірка, чи було завантажено нове зображення
-            if (isset($image) && $image['error'] === UPLOAD_ERR_OK) {
-                $updatedImage = $image['tmp_name']; // Встановлення шляху до завантаженого зображення
+    
+            // Оновлення шляху до зображення користувача, якщо новий файл був завантажений
+            if ($_FILES['photo']['size'] > 0) {
+                $updatedImg = "uploads/" . $_FILES['photo']['name'];
             } else {
-                $updatedImage = $currentUser['image']; // Залишити поточне значення зображення
+                $updatedImg = $currentUser['photo']; // Використовуємо поточний шлях
             }
     
+            // Підготовка та виконання SQL-запиту на оновлення
             $sql = "UPDATE users SET login = ?, email = ?, password = ?, firstname = ?, lastname = ?, image = ? WHERE id = ?";
             $statement = $this->conn->prepare($sql);
-            $result = $statement->execute([$updatedLogin, $updatedEmail, $updatedPassword, $updatedFirstName, $updatedLastName, $updatedImage, $userId]);
+            $result = $statement->execute([$updatedLogin, $updatedEmail, $updatedPassword, $updatedFirstName, $updatedLastName, $updatedImg, $userId]);
     
-            if ($result) {
-                echo "Інформацію профілю успішно оновлено!";
-            } else {
-                throw new Exception("Помилка при оновленні інформації профілю.");
-            }
+            // Перевірка успішності оновлення та повернення відповідного значення
+            return $result ? true : false;
         } catch (Exception $e) {
+            // Обробка помилки
             echo "Помилка: " . $e->getMessage();
+            return false;
         }
     }
+    
+    
+    
+    
     
     public function create($login, $email, $password, $firstName, $lastName, $role = 'user', $image) {
         try {

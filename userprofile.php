@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     if (move_uploaded_file($photoTmpName, $photoPath)) {
         echo "";
     } else {
-        echo "Помилка при завантаженні зображення.";
+        echo "";
     }
 }
 ?>
