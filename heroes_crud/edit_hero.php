@@ -2,8 +2,6 @@
 require_once "../clasess/hero.php";
 
 
-
-
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
     $heroId = $_GET['id'];
     $hero = new Hero();

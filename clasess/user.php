@@ -48,7 +48,7 @@ class User extends Database {
             $sql = "SELECT * FROM users WHERE email = ?";
             $statement = $this->conn->prepare($sql);
             $statement->execute([$email]);
-            $user = $statement->fetch();
+            $user = $statement->fetch();//асоціативне поле юзер
             
             if (!$user) {
                 throw new Exception("Користувач з цією електронною адресою не знайдений.");
@@ -62,7 +62,7 @@ class User extends Database {
             session_start();
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['login'] = $user['login'];
-            $_SESSION['role'] = $user['role'];
+            $_SESSION['role'] = $user['role'];  
             
             header('Location: index.php');
             exit();
@@ -113,7 +113,7 @@ class User extends Database {
             if ($_FILES['photo']['size'] > 0) {
                 $updatedImg = "uploads/" . $_FILES['photo']['name'];
             } else {
-                $updatedImg = $currentUser['photo']; // Використовуємо поточний шлях
+                $updatedImg = $currentUser['image']; // Використовуємо поточний шлях
             }
     
             // Підготовка та виконання SQL-запиту на оновлення
@@ -125,7 +125,7 @@ class User extends Database {
             return $result ? true : false;
         } catch (Exception $e) {
             // Обробка помилки
-            echo "Помилка: " . $e->getMessage();
+            echo "" . $e->getMessage();
             return false;
         }
     }
@@ -138,12 +138,11 @@ class User extends Database {
         try {
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
             
-            
             // Додавання користувача до бази даних
             $sql = "INSERT INTO users (login, email, password, firstname, lastname, role, image) VALUES (?, ?, ?, ?, ?, ?, ?)";
             $statement = $this->conn->prepare($sql);
             $statement->execute([$login, $email, $hashedPassword, $firstName, $lastName, $role, $image]);
-    
+            
             return "Користувач успішно створений!";
         } catch (Exception $e) {
             return "Помилка при створенні користувача: " . $e->getMessage();
